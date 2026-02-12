@@ -1,9 +1,9 @@
 {
   "name": "@jmandawg/gemini-vertex-review-code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "bin": {
-    "gemini-vertex-review-code": "bin/index.js"
+    "gemini-review-code": "bin/index.js"
   },
   "scripts": {
     "start": "tsc --watch",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmandawg/gemini-vertex-review-code"
+    "url": "git+https://github.com/jmandawg/gemini-vertex-review-code.git"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
