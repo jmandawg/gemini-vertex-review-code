@@ -1,9 +1,9 @@
 {
-  "name": "@hataiit9x/gemini-review-code",
+  "name": "@jmandawg/gemini-vertex-review-code",
   "version": "1.0.0",
   "main": "index.js",
   "bin": {
-    "gemini-review-code": "bin/index.js"
+    "gemini-vertex-review-code": "bin/index.js"
   },
   "scripts": {
     "start": "tsc --watch",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hataiit9x/gemini-review-code"
+    "url": "git+https://github.com/jmandawg/gemini-vertex-review-code"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -32,9 +32,9 @@
   },
   "description": "![](preview.png)",
   "bugs": {
-    "url": "https://github.com/hataiit9x/gemini-review-code/issues"
+    "url": "https://github.com/jmandawg/gemini-vertex-review-code/issues"
   },
-  "homepage": "https://github.com/hataiit9x/gemini-review-code#readme",
+  "homepage": "https://github.com/jmandawg/gemini-vertex-review-code#readme",
   "keywords": [
     "AI",
     "Gemini",

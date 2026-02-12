@@ -1,4 +1,4 @@
-# @hataiit9x/gemini-review-code
+# @jmandawg/gemini-vertex-review-code
 
 [![npm version](https://badge.fury.io/js/%40hataiit9x%2Freview-code-ai.svg)](https://badge.fury.io/js/%40hataiit9x%2Freview-code-ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,6 +6,9 @@
 ## Summary
 
 ![](preview.png)
+
+This is a fork of the excellent work by `@hataiit9x` which adds support for vertex AI.
+For more details, visit the [@hataiit9x/gemini-review-code](https://github.com/hataiit9x/gemini-review-code).
 
 `@hataiit9x/gemini-review-code` It is a small tool used for code review in GitLab Merge Requests. It supports calling the GitLab API for private 
 deployment and uses the Gemini AI API to obtain review results. Please note that when using it, ensure compliance with company regulations. 😉
