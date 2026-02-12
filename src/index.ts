@@ -12,6 +12,8 @@ program
     .option('-p, --project-id <number>', 'GitLab Project ID')
     .option('-m, --merge-request-id <string>', 'GitLab Merge Request ID')
     .option('-c, --custom-model <string>', 'Custom Model ID', 'gemini-1.5-flash')
+    .option('-l, --location <string>', 'GCP location', 'global')
+    .option('-z, --google-project-id <string>', 'Google Project ID')
     .parse(process.argv);
 
 async function run() {
@@ -22,10 +24,12 @@ async function run() {
         projectId,
         mergeRequestId,
         customModel,
+        location,
+        googleProjectId,
     } = program.opts();
     const gitlab = new GitLab({gitlabApiUrl, gitlabAccessToken, projectId, mergeRequestId});
     let aiClient;
-    aiClient = new Gemini('https://generativelanguage.googleapis.com', apiKey, customModel); // create a new instance of the Gemini class
+    aiClient = new Gemini(apiKey, customModel, googleProjectId, location); // create a new instance of the Gemini class
     await gitlab.init().catch(() => {
         console.log('gitlab init error')
     });

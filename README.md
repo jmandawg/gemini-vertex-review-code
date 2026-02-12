@@ -43,6 +43,8 @@ Options:
   -m, --merge-request-id <string>     GitLab Merge Request ID
   -c, --custom-model <string>         Custom Model ID, (default: "gemini-1.5-flash")
   -h, --help                          display help for command
+  -l, --location <string>             GCP location (vertex only) (default: "global")
+  -z, --google-project-id <string>    Google Project ID (vertex only)
 ```
 
 Example:
