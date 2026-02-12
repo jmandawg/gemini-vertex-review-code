@@ -102,4 +102,45 @@ export class GitLab {
         });
         return response.data;
     }
+
+    async delOldReviewComment() {
+        try {
+            const response = await this.apiClient.get(`/projects/${this.projectId}/merge_requests/${this.mrId}/discussions`);
+            if (response.status = 200) {
+                for (const discussion of response?.data) {
+                    for (const note of discussion?.notes) {
+                        if (note?.author?.username.startsWith(`project_${this.projectId}_bot_`)) {
+                            //delete note
+                            console.log(`deleting discussion: ${discussion.id} note: ${note.id} by author: ${note.author.username}`);
+                            try {
+                                const delResp = await this.apiClient.delete(`/projects/${this.projectId}/merge_requests/${this.mrId}/discussions/${discussion.id}/notes/${note.id}`);
+                                var i = 0;
+                            } catch(e) {
+                                console.log('error deleting old AI comments');
+                                console.log(e);
+                            }
+        
+                        }
+
+                    }
+                }
+            }
+        } catch (e) {
+            console.log('Error deleting old AI comments');
+            console.log(e);
+        }
+        /*
+        const response = await this.apiClient.post(`/projects/${this.projectId}/merge_requests/${this.mrId}/discussions`, {
+            body: suggestion,
+            position: {
+                position_type: 'text',
+                ...lineObj,
+                new_path: change.new_path,
+                old_path: change.old_path,
+                ...this.mergeRequestInfo?.diff_refs,
+            },
+        });
+        return response.data;
+        */
+    }
 }

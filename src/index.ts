@@ -12,8 +12,9 @@ program
     .option('-p, --project-id <number>', 'GitLab Project ID')
     .option('-m, --merge-request-id <string>', 'GitLab Merge Request ID')
     .option('-c, --custom-model <string>', 'Custom Model ID', 'gemini-1.5-flash')
-    .option('-l, --location <string>', 'GCP location', 'global')
-    .option('-z, --google-project-id <string>', 'Google Project ID')
+    .option('-l, --location <string>', 'GCP location (vertex only)', 'global')
+    .option('-z, --google-project-id <string>', 'Google Project ID (vertex only)')
+    .option('-k, --keep-previous-comments', 'keep previous comments', false)
     .parse(process.argv);
 
 async function run() {
@@ -26,8 +27,12 @@ async function run() {
         customModel,
         location,
         googleProjectId,
+        keepPreviousComments,
     } = program.opts();
     const gitlab = new GitLab({gitlabApiUrl, gitlabAccessToken, projectId, mergeRequestId});
+    if(!keepPreviousComments) {
+        await gitlab.delOldReviewComment();
+    }
     let aiClient;
     aiClient = new Gemini(apiKey, customModel, googleProjectId, location); // create a new instance of the Gemini class
     await gitlab.init().catch(() => {
