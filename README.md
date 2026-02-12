@@ -48,6 +48,7 @@ Options:
   -h, --help                          display help for command
   -l, --location <string>             GCP location (vertex only) (default: "global")
   -z, --google-project-id <string>    Google Project ID (vertex only)
+  -k, --keep-previous-comments        Keep previous comments (default: false)
 ```
 
 Example:
